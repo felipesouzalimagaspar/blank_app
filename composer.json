@@ -1,0 +1,52 @@
+{
+    "name": "webapp/blank_app",
+    "type": "project",
+    "description": "Empty project",
+    "authors": [
+        {
+            "name": "Felipe Gaspar"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "WebApp\\Platform\\Core\\": "src/",
+            "WebApp\\Platform\\OpenApi\\": "api/",
+            "WebApp\\Platform\\Web\\": "website/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\UnitTest\\": "tests/unit"
+        }
+    },
+    "require": {
+        "php": "^8",
+        "twig/twig": "^3.0",
+        "slim/slim": "4.*",
+        "slim/psr7": "^1.4",
+        "symfony/yaml": "^5.3",
+        "twbs/bootstrap": "^5.1",
+        "phpmailer/phpmailer": "^6.5",
+        "zircote/swagger-php": "^4.3",
+        "php-code-simplify/simplify": "^2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9",
+        "codeception/codeception": "^5.0",
+        "codeception/module-asserts": "^3.0"
+    },
+    "scripts": {
+        "clear": [
+            "rm -f composer.lock",
+            "@composer clear-cache"
+        ],
+        "build-application": [
+            "@clear",
+            "@composer install"
+        ]
+    },
+    "scripts-descriptions": {
+        "clear": "Limpa o cache de dependências e o arquivo composer.lock",
+        "build-application": "Limpa o cache e instala as dependências, e em seguida executa todas as rotinas de testes configuradas"
+    }
+}

@@ -1,0 +1,5 @@
+vendor
+api/data.yml
+config/config.yml
+templates/cache
+composer.lock

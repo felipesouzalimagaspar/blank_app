@@ -1,0 +1,13 @@
+webapp:
+  platform:
+    name: ""
+    version: "1.0.0"
+    base_uri: ""
+    tokens:
+      public: ""
+    database:
+      host: ""
+      user: ""
+      password: ""
+      name: ""
+  

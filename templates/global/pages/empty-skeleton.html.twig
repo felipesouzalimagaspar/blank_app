@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang }}">
+    <head>
+        {% block head %}            
+            <title>{{ page.meta.title }} - {{ app.name }}</title>
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+            <meta name="theme-color" content="#ffffff" />
+            <meta name="description" content="{{ page.meta.description }}"/>
+            <meta name="author" content="{{ client.shortName }}" />
+            <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
+            <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+            <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+            <link rel="manifest" href="/assets/icons/site.webmanifest">
+            {% for stylesheet in page.stylesheets %} 
+                <link href="{{ stylesheet }}" rel="stylesheet" type="text/css"/>
+            {% endfor %}
+            {% for script in page.scripts %} 
+                {% if script.position != 'footer' %}
+                    <script 
+                        src="{{ script.link }}" 
+                        {% if script.position == "defer" %}
+                            defer
+                        {% endif %}
+                        {% if script.type == "module" %}
+                            type="module"
+                        {% else %}
+                            type="text/javascript"
+                        {% endif %}
+                    ></script>
+                {% endif %}
+            {% endfor %}
+        {% endblock %}
+    </head>
+    <body>
+        <header>{% block header %}{% endblock %}</header>
+        <main>{% block content %}{% endblock %}</main>
+        <footer>
+            {% block footer %}
+                {% block copyright %}
+                    <p>&copy; Copyright {{ currentDate.year }}</p>
+                {% endblock %}
+            {% endblock %}
+        </footer>
+        {% for script in page.scripts %} 
+            {% if script.position == 'footer' %}
+                <script 
+                    src="{{ script.link }}" 
+                    {% if script.type == "module" %}
+                        type="module"
+                    {% else %}
+                        type="text/javascript"
+                    {% endif %}
+                ></script>
+            {% endif %}
+        {% endfor %}
+    </body>
+</html>

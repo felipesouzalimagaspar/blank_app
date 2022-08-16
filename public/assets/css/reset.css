@@ -1,0 +1,58 @@
+/* General Settings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    vertical-align: baseline;
+}
+body, #root {
+    font-family: var(--font-style-primary);
+    font-size: var(--font-size-primary);
+    line-height: var(--line-height-primary);
+    color: var(--color-gray-dark);
+    background-color: var(--color-primary);
+    font-weight: var(--font-thin);    
+    z-index: var(--z-base-index);
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section { display: block; }
+ol, ul { list-style-type: none; }
+a {
+    color: unset;
+    text-decoration: none;    
+}
+*:focus { outline-color: var(--color-primary); }
+header, main, footer, section {
+    padding-left: var(--containter-offset-xxl);
+    padding-right: var(--containter-offset-xxl);
+}
+@media screen and (max-width: 1400px) {
+    header, main, footer, section {
+        padding-left: var(--containter-offset-xl);
+        padding-right: var(--containter-offset-xl);
+    }
+}
+@media screen and (max-width: 1200px) {
+    header, main, footer, section {
+        padding-left: var(--containter-offset-lg);
+        padding-right: var(--containter-offset-lg);
+    }
+}
+@media screen and (max-width: 992px) {
+    header, main, footer, section {
+        padding-left: var(--containter-offset-md);
+        padding-right: var(--containter-offset-md);
+    }
+}
+@media screen and (max-width: 768px) {
+    header, main, footer, section {
+        padding-left: var(--containter-offset-sm);
+        padding-right: var(--containter-offset-sm);
+    }
+}
+@media screen and (max-width: 576px) {
+    header, main, footer, section {
+        padding-left: var(--containter-offset-xs);
+        padding-right: var(--containter-offset-xs);
+    }
+}
