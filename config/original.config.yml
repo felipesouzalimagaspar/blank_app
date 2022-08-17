@@ -1,13 +1,13 @@
 webapp:
   platform:
-    name: ""
+    name: "Test Application"
     version: "1.0.0"
-    base_uri: ""
+    base_uri: "http://127.0.0.1:8888/"
     tokens:
-      public: ""
+      public: "1234"      
     database:
-      host: ""
-      user: ""
-      password: ""
-      name: ""
+      host: "db"
+      user: "mariadb"
+      password: "mariadb"
+      name: "mariadb"
   

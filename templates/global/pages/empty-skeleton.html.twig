@@ -1,17 +1,32 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang }}">
+<html lang="{{ page.meta.lang }}">
     <head>
         {% block head %}            
             <title>{{ page.meta.title }} - {{ app.name }}</title>
-            <meta charset="utf-8" />
+            <meta charset="{{ page.meta.charset }}" />
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
             <meta name="theme-color" content="#ffffff" />
             <meta name="description" content="{{ page.meta.description }}"/>
             <meta name="author" content="{{ client.shortName }}" />
+            <meta property="og:title" content="{{ page.meta.title }} - {{ app.name }}"/>
+            <meta property="og:type" content="website"/>
+            <meta property="og:url" content="{{ app.url }}"/>
+            <meta property="og:image" content="{{ page.meta.image }}"/>
+            <meta property="og:site_name" content="{{ app.name }}"/>
+            <meta property="og:description" content="{{ page.meta.description }}"/>
+            <meta name="Keywords" content="{{ page.meta.Keywords }}" />
+            <meta http-equiv="X-UA-Compatible" content="IE=10; IE=9; IE=8; IE=7; IE=EDGE" />            
             <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
             <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
             <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
             <link rel="manifest" href="/assets/icons/site.webmanifest">
+            <style>
+                {% include "@global/css/externals.css" | raw %}
+                {% include "@global/css/variables.css" | raw %}
+                {% include "@global/css/reset.css" | raw %}
+                {% include "@global/css/normalize.css" | raw %}
+                {% include "@global/css/critical.css" | raw %}
+            </style>
             {% for stylesheet in page.stylesheets %} 
                 <link href="{{ stylesheet }}" rel="stylesheet" type="text/css"/>
             {% endfor %}

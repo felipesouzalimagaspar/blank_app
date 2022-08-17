@@ -9,6 +9,7 @@ class Page extends HTML {
         public array $scripts = [],
         public array $content = [],
         public string $template = '@global/pages/empty-skeleton.html.twig',
+        public string $urn = '/'
     ) {}
     public function export() : array {
         $stylesheets = $this->stylesheets;
@@ -24,7 +25,8 @@ class Page extends HTML {
             'scripts' => \WebApp\Platform\Core\Utils\Reducer::reduce($scripts),
             'template' => $this->template,
             'content' => $content,
-            'meta' => $this->meta->export()
+            'meta' => $this->meta->export(),
+            'urn' => $this->urn
         ];
     }
 }

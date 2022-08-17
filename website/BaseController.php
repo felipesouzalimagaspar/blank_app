@@ -19,12 +19,14 @@ class BaseController implements \WebApp\Platform\Core\Router\Controller {
         $this->response = $response;
         $this->request = $request;
         $this->args = $args;
-        $template = WEBAPP_TWIG_ENVIRONMENT->load('@global/pages/empty-skeleton.html.twig');
-        $this->response->getBody()->write($template->render($this->export()));
+        $view = $this->export();
+        $template = WEBAPP_TWIG_ENVIRONMENT->load($view['page']['template']);
+        $this->response->getBody()->write($template->render($view));
         return $this->response;
     }
 
     public function export() : array {
+        $urn = '/';
         $content = [];
         $components = [
             new Component(
@@ -61,9 +63,14 @@ class BaseController implements \WebApp\Platform\Core\Router\Controller {
                 $styles,
                 $scripts,
                 $content,
-                $template
+                $template,
+                $urn
             ))->export(),
-            'app' => ['name' => WEBAPP_NAME],
+            'app' => [
+                'name' => $_ENV['webapp']['platform']['name'],
+                'version' => $_ENV['webapp']['platform']['version'],
+                'url' => $_ENV['webapp']['platform']['base_uri'] . $urn
+            ],
             'client' => WEBAPP_CLIENT->export(),
             'currentDate' => ['year' => date("Y")],
         ];

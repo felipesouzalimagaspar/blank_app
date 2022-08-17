@@ -4,7 +4,6 @@
     ################################################################################
     declare(strict_types=1);
     /**  @todo change the APP_MODE to true for production and false for sandbox **/
-    const WEBAPP_NAME = 'Test Application';
     const WEBAPP_APP_MODE = false;
     const WEBAPP_VENDOR_PATH = __DIR__ . '/../vendor/autoload.php';
     require_once WEBAPP_VENDOR_PATH;
